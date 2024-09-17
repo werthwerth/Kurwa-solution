@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Modify article";
+}
+
+@model ArticlesModifyModel
+
+<div class="text-center">
+    <h1 class="display-4">Редактирование статьи</h1>
+    <form id="changeUserForm" method="post">
+        <div class="mb-3">
+            <br />
+            @foreach (var item in @Model.TagList)
+            {
+                <div class="form-check form-check-inline">
+                    @Html.CheckBox(@item.Id.ToString(), item.isCheck)
+                    <label class="form-check-label" for="inlineCheckbox1">@item.Text</label>
+                </div>
+            }
+            <br />
+            <br />
+            <label>Заголовок</label><br />
+            <input type="text" name="Subject" id="Subject" value="@Model.Article.Subject" /><br /><br />
+            <label>Контент</label><br />
+            <input type="text" name="LastName" id="LastName" value="@Model.Article.Text" /><br /><br />
+        </div>
+        <input type="submit" value="Сохранить изменения" />
+    </form>
+    <br />
+    <a class="link" asp-area="" asp-controller="Home" asp-action="Index">Выйти без сохранения</a>
+</div>
+

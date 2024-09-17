@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = @Model.Article.Subject;
+}
+
+@model ArticlesViewModel
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Article.Subject</h1>
+    <br />
+    @if (Model.TagList != null && Model.TagList.Count > 0)
+    {
+        @foreach (var item in Model.TagList)
+        {
+            <span class="badge bg-primary">@item.Text</span>
+        }
+    }
+    <br />
+    <hr />
+    <br />
+    @Model.Article.Text
+    <br />
+    <hr />
+    <br />
+    <p>CreatedBy @Model.Article.Author.FirstName @Model.Article.Author.LastName</p>
+    <br />
+    <br />
+    <br />
+    <b>Комментарии к статье</b>
+    <br />
+    @if (Model.CommentList != null && Model.CommentList.Count > 0)
+    {
+        @foreach (var comment in Model.CommentList)
+        {
+            <div class="card start-50 translate-middle" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="card-text">@comment.Text</p>
+                    <span class="badge rounded-pill bg-success position-absolute top-0 start-100 translate-middle">@comment.Author.Email</span>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Комментариев нет</p>
+    }
+
+    <form id="AddCommentForm" method="post">
+        <div class="mb-3">
+            <input type="text" name="CommentText" id="CommentText" /><br /><br />
+        </div>
+        <input type="submit" value="Оставить комментарий" />
+    </form>
+    <br />
+</div>
+

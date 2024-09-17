@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Register Page";
+}
+
+@model LoginModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to test-O!</h1>
+    <p>Test-O!</p>
+    @if (@Model._LoginResult != null && !@Model._LoginResult.success)
+    {
+        <p>WRONG!</p>
+    }
+    <form id="loginForm" method="post" action=@Url.Action("Login", "Login")>
+        <label>Логин:</label><br />
+        <input type="text" name="login" id="login" /><br /><br />
+        <label>Пароль:</label><br />
+        <input type="password" name="password" id="password" /><br /><br />
+        <input type="submit" value="Отправить" />
+    </form>
+</div>

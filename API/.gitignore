@@ -1,0 +1,4 @@
+obj/
+bin/
+WeatherForecast.cs
+API.csproj.user

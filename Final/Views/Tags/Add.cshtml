@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Tags page";
+}
+
+@model TagsAddModel
+
+<div class="text-center">
+    <h1 class="display-4">Добавление тегов</h1>
+    <form id="addTagForm" method="post">
+        <label>Название</label><br />
+        <input type="text" name="tagName" id="tagName" /><br /><br />
+        <input type="submit" value="Отправить" />
+    </form>
+    <br />
+    <a class="link" asp-area="" asp-controller="Tags" asp-action="All">Перейти к списку всех тегов</a>
+</div>

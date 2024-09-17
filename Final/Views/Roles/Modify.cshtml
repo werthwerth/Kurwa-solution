@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Modify role";
+}
+
+@model RolesModifyModel
+
+<div class="text-center">
+    <h1 class="display-4">Редактирование роли</h1>
+    <form id="addRoleForm" method="post">
+        <div class="mb-3">
+            <br />
+            <label>Название</label><br />
+            <input type="text" name="RoleName" id="RoleName" value="@Model.Role.Name" /><br /><br />
+            <label>Описание</label><br />
+            <input type="text" name="RoleDescription" id="RoleDescription" value="@Model.Role.Description" /><br /><br />
+        </div>
+        <input type="submit" value="Сохранить" />
+    </form>
+    <br />
+    <a class="link" asp-area="" asp-controller="Roles" asp-action="All">Перейти к списку всех ролей</a>
+</div>
+

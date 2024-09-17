@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "All roles";
+}
+
+@model RolesAllModel
+
+<div class="text-center">
+    <h1 class="display-4">Все роли</h1>
+    <form id="changeUserForm" method="post">
+        <div class="mb-3">
+            <br />
+            <br />
+            <br />
+            @foreach (var item in @Model.Rolelist)
+            {
+                <div class="card start-50 translate-middle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="link" asp-area="" asp-controller="Roles" asp-action="Modify" asp-route-id="@item.Id">@item.Name</a></h5>
+                        <br />
+                        <p class="card-text">Описание: @item.Description</p>
+                    </div>
+                </div>
+            }
+            <br />
+        </div>
+    </form>
+    <br />
+</div>
+

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Roles add";
+}
+
+@model RolesAddModel
+
+<div class="text-center">
+    <h1 class="display-4">Добавление нвоых ролей</h1>
+    <form id="addRoleForm" method="post">
+        <div class="mb-3">
+            <label>Название</label><br />
+            <input type="text" name="roleName" id="roleName" /><br /><br />
+            <label>Описание</label><br />
+            <textarea type="text" name="roleDescription" id="roleDescription" rows="3" /></textarea><br />
+        </div>
+        <input type="submit" value="Отправить" />
+    </form>    
+    <br />
+    <a class="link" asp-area="" asp-controller="Roles" asp-action="All">Перейти к списку всех ролей</a>
+</div>

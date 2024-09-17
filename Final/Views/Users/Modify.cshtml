@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Modify user";
+}
+
+@model UsersModifyModel
+
+<div class="text-center">
+    <h1 class="display-4">Редактирование пользователя</h1>
+    <form id="changeUserForm" method="post">
+        <div class="mb-3">
+            <label><p class="fw-bold">Роли</p></label>
+            <br />
+            @foreach (var item in @Model.ContextRoles)
+            {
+                <div class="form-check form-check-inline">
+                    @Html.CheckBox(@item.Id.ToString(), item.UserInRole)
+                    <label class="form-check-label" for="inlineCheckbox1">@item.Name</label>
+                </div>
+            }
+            <br />
+            <br />
+            <label>Имя</label><br />
+            <input type="text" name="FirstName" id="FirstName" value="@Model.ContextUser.FirstName" /><br /><br />
+            <label>Фамилия</label><br />
+            <input type="text" name="LastName" id="LastName" value="@Model.ContextUser.LastName" /><br /><br />
+            <label>E-mail</label><br />
+            <input type="text" name="Email" id="Email" value="@Model.ContextUser.Email" /><br /><br />
+            <label>Пароль</label><br />
+            <input type="password" name="Password" id="Password" value="******" /><br /><br />
+        </div>
+        <input type="submit" value="Сохранить" />
+    </form>
+    <br />
+    <a class="link" asp-area="" asp-controller="Users" asp-action="All">Перейти к списку всех пользователей</a>
+</div>
+

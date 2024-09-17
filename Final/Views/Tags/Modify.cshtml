@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Modify tag";
+}
+
+@model TagsModifyModel
+
+<div class="text-center">
+    <h1 class="display-4">Редактирование тега</h1>
+    <form id="addRoleForm" method="post">
+        <div class="mb-3">
+            <label>Название</label><br />
+            <input type="text" name="TagText" id="TagText" value=@Model.ContextTag.Text /><br /><br />
+            <br />
+            <br />
+        </div>
+        <input type="submit" value="Сохранить" />
+    </form>
+    <br />
+    <a class="link" asp-area="" asp-controller="Tags" asp-action="All">Перейти к списку всех тегов</a>
+</div>
+

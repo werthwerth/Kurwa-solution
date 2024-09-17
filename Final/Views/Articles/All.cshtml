@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "All articles";
+}
+
+@model ArticlesAllModel
+
+<div class="text-center">
+    <h1 class="display-4">Все статьи</h1>
+    <form id="changeUserForm" method="post">
+        <div class="mb-3">
+            <br />
+            <br />
+            <br />
+            @foreach (var item in @Model.Articlelist)
+            {
+                <div class="card start-50 translate-middle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="link" asp-area="" asp-controller="Articles" asp-action="View" asp-route-id="@item.Id">@item.Subject</a></h5>
+                        <br />
+                        @foreach (var tag in item.ArticleTagList)
+                        {
+                            @if (tag != null)
+                            {
+                                <span class="badge bg-primary">@tag.Text</span>
+                            }
+                        }
+                        <br />
+                        <a class="link" asp-area="" asp-controller="Articles" asp-action="Modify" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-success">Редактировать</button></a>
+                        <a class="link" asp-area="" asp-controller="Articles" asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-danger">Удалить</button></a>
+                        <br />
+                    </div>
+                </div>
+            }
+            <br />
+        </div>
+    </form>
+    <br />
+</div>
+
